@@ -22,9 +22,9 @@ app.set('port', port);
 https
     .createServer(
         {
-          key: fs.readFileSync('/etc/letsencrypt/path/to/key.pem'),
-          cert: fs.readFileSync('/etc/letsencrypt/path/to/cert.pem'),
-          ca: fs.readFileSync('/etc/letsencrypt/path/to/chain.pem'),
+          key: fs.readFileSync('/etc/letsencrypt/live/p6.vitagliano.dk/privkey.pem'),
+          cert: fs.readFileSync('/etc/letsencrypt/live/p6.vitagliano.dk/cert.pem'),
+          ca: fs.readFileSync('/etc/letsencrypt/live/p6.vitagliano.dk/chain.pem'),
         },
         app
     )
