@@ -9,6 +9,18 @@ var usersRouter = require('./routes/users');
 var app = express();
 const cors = require('cors');
 
+
+const setCSPHeader = (req, res, next) => {
+  // Set Content Security Policy headers
+  res.setHeader('Content-Security-Policy', "connect-src 'self' https://p6.vitagliano.dk");
+
+  // Call the next middleware in the chain
+  next();
+};
+
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -20,7 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'), { dotfiles: 'allow' }));
 app.use(bodyParser.json());
 app.use(cors());
-
+app.use(setCSPHeader)
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
