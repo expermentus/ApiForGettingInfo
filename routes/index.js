@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const bodyParser = require('body-parser');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,7 +9,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   console.log(req.body)
-  console.log(res.body)
   res.render('index', { title: 'Express' });
 });
 
